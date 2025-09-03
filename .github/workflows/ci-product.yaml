@@ -58,6 +58,10 @@ jobs:
           framework: kubernetes
           skip_check: CKV_K8S_21,CKV_K8S_22
 
+      - name: Build Docker image for Trivy scan
+        working-directory: src/product-catalog
+        run: docker build -t product-catalog-service:${{ github.run_id }} .
+
       # Scan Dockerfile and built image for vulnerabilities
       - name: Run Trivy vulnerability scan
         uses: aquasecurity/trivy-action@0.33.0
