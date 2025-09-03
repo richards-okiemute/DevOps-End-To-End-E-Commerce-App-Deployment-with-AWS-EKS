@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-lint:
+  build-and-lint: 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
