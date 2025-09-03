@@ -46,6 +46,7 @@ jobs:
       - name: Build and test
         working-directory: src/product-catalog
         run: |
+          go mod tidy
           go build -o product-catalog-service .
           go test -v ./...
           
