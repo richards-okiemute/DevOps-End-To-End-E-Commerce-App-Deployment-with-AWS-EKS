@@ -94,7 +94,7 @@ jobs:
           context: src/product-catalog
           file: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}:${{DATE}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}
       
   update-kubernetes:
     runs-on: ubuntu-latest
