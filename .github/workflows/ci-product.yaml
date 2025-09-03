@@ -12,10 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Setup Go 1.22
+      - name: Setup Go 1.24.6
         uses: actions/setup-go@v4
         with:
-          go-version: 1.22
+          go-version: 1.24.6
       
       - name: Build and test
         working-directory: src/product-catalog
@@ -41,7 +41,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.22'
+          go-version: '1.24.6'
         
       - name: Build and test
         working-directory: src/product-catalog
