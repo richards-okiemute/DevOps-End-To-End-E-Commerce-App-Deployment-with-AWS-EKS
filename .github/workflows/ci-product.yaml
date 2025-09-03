@@ -103,7 +103,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      
+          ref: main
+          fetch-depth: 0
       - name: Update tag in Kubernetes deployment file/manifest
         run: |
           sed -i 's|image: .*|image: '"${{ secrets.DOCKER_USERNAME }}"'/product-catalog:'"${{github.run_id}}"'|g' kubernetes/productcatalog/deploy.yaml
@@ -114,4 +115,4 @@ jobs:
           git config --global user.email "richards.okiemute@gmail.com"
           git add kubernetes/productcatalog/deploy.yaml
           git commit -m "[Github Actions - CI] Update image tag to ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}"
-          git push
+          git push origin main
