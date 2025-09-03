@@ -93,7 +93,7 @@ jobs:
         with:
           context: src/product-catalog  
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}} 
       
   update-kubernetes:
     runs-on: ubuntu-latest
