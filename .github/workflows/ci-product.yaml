@@ -25,9 +25,9 @@ jobs:
           go test -v ./...
       
       - name: Golangci-lint
-        uses: golangci/golangci-lint-action@v3
+        uses: golangci/golangci-lint-action@v5
         with:
-          version: v1.56
+          version: latest
           working-directory: src/product-catalog
           args: "--issues-exit-code=0"
 
