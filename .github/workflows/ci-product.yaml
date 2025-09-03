@@ -49,7 +49,10 @@ jobs:
           go mod tidy
           go build -o product-catalog-service .
           go test -v ./...
-          
+
+      - name: Build Docker image for Trivy scan
+        working-directory: src/product-catalog
+        run: docker build -t product-catalog-service:${{ github.run_id }} .
       # Scan Infrastructure as Code (IaC) files for misconfigurations
       # - name: Run Checkov IaC scan
       #   uses: bridgecrewio/checkov-action@v2
