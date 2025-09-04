@@ -102,7 +102,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: main
           fetch-depth: 0
       - name: Update tag in Kubernetes deployment file/manifest
@@ -111,9 +111,9 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "Richards Okiemute"
-          git config --global user.email "richards.okiemute@gmail.com"
+          git config --global user.name "GitHub Action [Bot]"
+          git config --global user.email ""
           git add kubernetes/productcatalog/deploy.yaml
           git commit -m "[Github Actions - CI] Update image tag to ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}"
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/richards-okiemute/DevOps-End-To-End-E-Commerce-App-Deployment-with-AWS-EKS.git
-          git push origin main
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/richards-okiemute/DevOps-End-To-End-E-Commerce-App-Deployment-with-AWS-EKS.git
+          git push origin HEAD:main
